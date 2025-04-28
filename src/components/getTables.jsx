@@ -5,15 +5,10 @@ import React, { useState, useEffect } from 'react';
 const GetTables = () => { 
 
   const [tables, setTables] = useState([]); 
-
   const [isLoading, setIsLoading] = useState(true); 
-
   const [error, setError] = useState(null); 
 
- 
-
   useEffect(() => { 
-
     // Funkcja do pobierania danych z API 
 
     const fetchTables = async () => { 
@@ -37,28 +32,16 @@ const GetTables = () => {
         setError(err.message); 
 
       } finally { 
-
         setIsLoading(false); 
-
       } 
-
     }; 
-
- 
-
     fetchTables(); 
 
   }, []); 
 
- 
-
   if (isLoading) { 
-
     return <div>Ładowanie...</div>; 
-
   } 
-
- 
 
   if (error) { 
 
@@ -76,11 +59,8 @@ const GetTables = () => {
     <div> 
 
       <h3>Lista Tabel</h3> 
-
       <div> 
-
         <ul> 
-
           {tables.map((table) => ( 
 
             <li key={table.id}>
@@ -88,13 +68,9 @@ const GetTables = () => {
                 </li> 
 
           ))} 
-
         </ul>
-
       </div> 
-
     </div> 
-
   ); 
 
 }; 
