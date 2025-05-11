@@ -4,9 +4,10 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import List from './components/list'
 import GetTables from './components/getTables'
+import GetTable from './components/getTable'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [selectedTable, setSelectedTable] = useState(null)
 
   return (
     <>
@@ -31,7 +32,8 @@ function App() {
         Click on the Vite and React logos to learn more
       </p> */}
       {/* <List /> */}
-      <GetTables />
+      <GetTables onSelectTable={setSelectedTable}/>
+      <GetTable selectedTable={selectedTable}/>
     </>
   )
 }

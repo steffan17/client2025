@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
  
 
-const GetTables = () => { 
+const GetTables = ({onSelectTable}) => { 
 
   const [tables, setTables] = useState([]); 
   const [isLoading, setIsLoading] = useState(true); 
@@ -52,6 +52,7 @@ const GetTables = () => {
  const handleTableClick = (tableName) => {
     // Tutaj możesz obsłużyć kliknięcie w tabelę
     console.log(`Kliknięto tabelę: ${tableName}`);
+    onSelectTable(tableName); // Przekazanie wybranej tabeli do rodzica
   }
 
   return ( 
