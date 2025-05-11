@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import GetTables from "./getTables";
+import { API_URL } from '../config';
+
 
 const GetTable = ({ selectedTable }) => {
   const [data, setData] = useState([]);
@@ -7,7 +9,7 @@ const GetTable = ({ selectedTable }) => {
   useEffect(() => {
     if (!selectedTable) return; // Nie pobieraj danych, jeśli nie wybrano tabeli
 
-    fetch(`https://apollo.mguard.pl/api/getTable?tableName=${selectedTable}`)
+    fetch(`${API_URL}/getTable?tableName=${selectedTable}`)
       .then((res) => res.json())
       .then((data) => setData(data))
       .catch((error) => console.error("Error fetching table data:", error));

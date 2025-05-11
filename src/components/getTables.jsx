@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'; 
+import { API_URL } from '../config';
 
  
 
@@ -15,7 +16,7 @@ const GetTables = ({onSelectTable}) => {
 
       try { 
 
-        const response = await fetch('https://apollo.mguard.pl/api/getTables'); // Zmień na odpowiedni endpoint 
+        const response = await fetch(`${API_URL}/getTables`); // Zmień na odpowiedni endpoint 
 
         if (!response.ok) { 
 
