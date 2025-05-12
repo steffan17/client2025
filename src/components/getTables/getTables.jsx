@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'; 
-import { API_URL } from '../config';
+import { API_URL } from '../../config';
+import './getTables.css';
 
  
 
@@ -58,15 +59,15 @@ const GetTables = ({onSelectTable}) => {
 
   return ( 
 
-    <div> 
+    <div className="app-get-tables"> 
 
-      <h3>Lista Tabel</h3> 
-      <div> 
+      <h3 className="app-get-tables-title">Lista Tabel</h3> 
+      <div className="app-tables-list"> 
         <ul> 
           {tables.map((table) => ( 
 
-            <li key={table.id}>
-                <button key={table.id} onClick={() => handleTableClick(table.name)}>{table.name}</button>
+            <li key={table.id} className="app-tables-list-item">
+                <button className="app-tables-list-item-button" key={table.id} onClick={() => handleTableClick(table.name)}>{table.name}</button>
                 </li> 
 
           ))} 

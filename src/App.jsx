@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import List from './components/list'
-import GetTables from './components/getTables'
+import GetTables from './components/getTables/getTables'
 import GetTable from './components/getTable'
 
 function App() {

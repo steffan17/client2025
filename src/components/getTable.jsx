@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import GetTables from "./getTables";
+import GetTables from "./getTables/getTables";
 import { API_URL } from '../config';
 
 
