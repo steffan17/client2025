@@ -5,6 +5,7 @@ import { API_URL } from '../config';
 
 const GetTable = ({ selectedTable }) => {
   const [data, setData] = useState([]);
+  const [showDialog, setShowDialog] = useState(false);
 
   useEffect(() => {
     if (!selectedTable) return; // Nie pobieraj danych, jeśli nie wybrano tabeli
@@ -14,6 +15,18 @@ const GetTable = ({ selectedTable }) => {
       .then((data) => setData(data))
       .catch((error) => console.error("Error fetching table data:", error));
   }, [selectedTable]);
+
+  const delClickHandler = (row) => {
+    console.log("Usuwanie wiersza:", row); 
+    setShowDialog(true);
+  }
+  const handleConfirmDelete = () => {
+    setShowDialog(false);
+  };
+
+  const handleCancelDelete = () => {
+    setShowDialog(false);
+  };
 
   return (
     <div>
@@ -37,7 +50,7 @@ const GetTable = ({ selectedTable }) => {
                   <td key={i}>{value}</td>
                 ))}
                 <td>
-                  <button>Usun</button>
+                  <button onClick={() => delClickHandler(row)}>Usun</button>
                 </td>
               </tr>
             ))}
@@ -45,6 +58,13 @@ const GetTable = ({ selectedTable }) => {
         </table>
       ) : (
         <p>Brak danych</p>
+      )}
+      {showDialog && (
+        <div className="dialog">
+          <p>Czy chcesz usunąć wiersz?</p>
+          <button onClick={handleConfirmDelete}>Tak</button>
+          <button onClick={handleCancelDelete}>Nie</button>
+        </div>
       )}
     </div>
   );
