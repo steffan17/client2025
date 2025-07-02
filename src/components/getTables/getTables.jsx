@@ -16,19 +16,20 @@ const GetTables = ({onSelectTable}) => {
     const fetchTables = async () => { 
 
       try { 
-
+  
         const response = await fetch(`${API_URL}/getTables`); // Zmień na odpowiedni endpoint 
-
+        
         if (!response.ok) { 
 
           throw new Error('Błąd podczas pobierania danych'); 
+          
 
         } 
-
+         
         const data = await response.json(); 
         
         setTables(data); 
-
+        console.log("(-:)");
       } catch (err) { 
 
         setError(err.message); 

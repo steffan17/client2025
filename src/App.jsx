@@ -5,15 +5,17 @@ import './App.css'
 import List from './components/list'
 import GetTables from './components/getTables/getTables'
 import GetTable from './components/getTable'
+import DigitalClock from './components/DigitalClock'
 
 function App() {
   const [selectedTable, setSelectedTable] = useState(null)
 
   return (
     <>
-     
-      <GetTables onSelectTable={setSelectedTable}/>
-      <GetTable selectedTable={selectedTable}/>
+
+      <GetTables onSelectTable={setSelectedTable} />
+      <GetTable selectedTable={selectedTable} />
+      <DigitalClock />
     </>
   )
 }
